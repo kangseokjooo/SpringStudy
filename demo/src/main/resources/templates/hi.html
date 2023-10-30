@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:/www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--    <h3>th:text 예시</h3>-->
+<!--    <p th:text="'안녕하세요'+${msg}">안녕 반가워~</p>-->
+<!--    <br>-->
+<!--    <h3>th:utext예시</h3>-->
+<!--    <p th:utext="${uText}">hello</p>-->
+<!--    <br>-->
+<!--    <h3>th:value예시</h3>-->
+<!--    <input th:value="${value}"/>-->
+<!--    <br>-->
+<!--    <h3>th:with</h3>-->
+<!--    <div th:with="temp=${with}" th:text="${temp}"></div>-->
+<!--    <br>-->
+<!--    <h3>th:href</h3>-->
+<!--    <a th:href="@{/{id}(id=${link})}">링크</a>-->
+<!--    <br>-->
+<!--    <h3>th:src예시</h3>-->
+<!--    <img th:src="${img}" />-->
+<!--    <br>-->
+<!--    <h3>th:switch예시</h3>-->
+<!--    <div th:switch="${userRole}">-->
+<!--        <p th:case="'admin'">Hello admin</p>-->
+<!--        <p th:case="'user'">Hello user</p>-->
+<!--        <p th:case="*">Hello unknown</p>-->
+<!--    </div>-->
+<!--    <br>-->
+<!--    <h3>th:if,th:unless 예시</h3>-->
+<!--    <div th:if="${isAdmin}">welcome admin</div>-->
+<!--    <div th:unless="${isAdmin}">welcome user</div>-->
+<!--    <br>-->
+<!--    <h3>th:each</h3>-->
+<!--    <div th:each="nums=${names}">-->
+<!--        <div th:text="${nums}"></div>-->
+<!--    </div>-->
+<!--    <br>-->
+     <h1>Practice 1</h1>
+    <form th:action="@{/checkAge}" method="post">
+        <label for="age">나이를 입력하세요:</label>
+        <input type="text" id="age" name="age">
+        <button type="submit">확인</button>
+    </form>
+    <p th:text="${result}"></p>
+    <h1>Practice 2</h1>
+<ul>
+    <li th:each="entry : ${map}">
+        <span th:text="${entry.key}"></span>: <span th:text="${entry.value}"></span>
+    </li>
+</ul>
+</body>
+</html>
