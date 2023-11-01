@@ -1,18 +1,45 @@
-<!--<!DOCTYPE html>-->
-<!--<html lang="en">-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <title>Title</title>-->
-<!--</head>-->
-<!--<body>-->
-<!--<form action="/hobby" method="post" style="margin-right: 20px;">-->
-<!--    <h3>Get 전송 prac</h3>-->
-<!--    이름 : <input type="text" name="name">-->
-<!--    나이 : <input type="text" name="age">-->
-<!--    핸드폰번호 <input type="number" name="phone">-->
-<!--    관심사 <input type="radio" name="hobby" value="여행"> 여행 <input type="radio" name="hobby" value="패션"> 패션-->
-<!--    <br>-->
-<!--    <button type="submit">Get 전송</button>-->
-<!--</form>-->
-<!--</body>-->
-<!--</html>-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Title</title>
+</head>
+<body>
+<form action="/prac" method="post" style="margin-right: 20px;" id="pracForm">
+    <h3>Get 전송 prac</h3>
+    이름 : <input type="text" name="name">
+    나이 : <input type="text" name="age">
+    <button type="button" onclick="prac()">가입</button>
+    <button typr="button" onclick="login()">로그인</button>
+    <button type="button" onclick="deleteUser()">탈퇴</button>
+</form>
+
+</body>
+<script>
+    function prac() {
+        var form = document.getElementById('pracForm');
+        axios.post(`/prac`, {name: form.name.value, age: form.age.value})
+        .then((res)=>{
+            console.log( res );
+            console.log( res.data );
+        });
+    }
+    function deleteUser(){
+        var form = document.getElementById('pracForm');
+        axios.delete(`/delete/${form.name.value}`, )
+        .then((res)=>{
+            console.log( res );
+            console.log( res.data );
+        });
+    }
+    function login() {
+        var form = document.getElementById('pracForm');
+        axios.post(`/login`, {name: form.name.value, age: form.age.value})
+        .then((res)=>{
+            console.log( res );
+            console.log( res.data );
+        });
+    }
+</script>
+</html>

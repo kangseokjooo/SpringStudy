@@ -135,6 +135,81 @@ public class MainController {
         String msg=userVO.getName()+" "+userVO.getAge();
         return msg;
     }
+    //DTO axios
+    @GetMapping("/axios/response1")
+    @ResponseBody
+    public String axiosResponse1(@RequestParam(value = "name") String name,@RequestParam(value = "age") String age,Model model){
+        //axiosGet 일때 RequstParam 으로 받을 수 있다.
+        String msg="이름은: "+name+" "+"나이는: "+age;
+        return msg;
+    }
+    @GetMapping("/axios/response2")
+    @ResponseBody
+    public String axiosResponse2(UserDTO userDTO){
+        //axiosGet 일 때 @ModelAttribute로 값을 전달 받을 수 있다.
+        String msg="이름은: "+userDTO.getName()+" "+"나이는: "+userDTO.getAge();
+        return msg;
+    }
+    //@ModelAttribute와 @RequestParam의 특징
+    //일반폼전송->파라미터 형태로 들어온다
+    //json으로 값을 보내면 파라미터 x , 데이터 o ( 요청 본문 데이터 )
+    @PostMapping("/axios/response3")
+    @ResponseBody
+    public String axiosResponse3(@RequestParam String name,@RequestParam String age){
+        //axiosPost일 때는 @RequestParam으로 값을 받지 못한다.
+        String msg="이름은: "+name+" "+"나이는: "+age;
+        return msg;
+    }
+    @PostMapping("/axios/response4")
+    @ResponseBody
+    public String axiosResponse4(UserDTO userDTO){
+        String msg="이름은: "+userDTO.getName()+" "+"나이는: "+userDTO.getAge();
+        return msg;
+    }
+    @PostMapping("/axios/response5")
+    @ResponseBody
+    public String axiosResponse5(@RequestBody UserDTO userDTO){
+        //axios동적 전송일 때 Post방식에서는 @RequestBody만 json데이터를 주고 받을 수 있다
+        String msg="이름은: "+userDTO.getName()+" "+"나이는: "+userDTO.getAge();
+        return msg;
+    }
+
+    //VO axios
+    @GetMapping("/axios/vo/response1")
+    @ResponseBody
+    public String axiosVoResponse1(@RequestParam String name,@RequestParam String age){
+        String msg="이름은: "+name+" "+"나이는: "+age;
+        return msg;
+    }
+
+    @GetMapping("/axios/vo/response2")
+    @ResponseBody
+    public String axiosVoResponse2(UserVO userVO){
+        String msg="이름은: "+userVO.getName()+" "+"나이는: "+userVO.getAge();
+        return msg;
+    }
+    @PostMapping("/axios/vo/response3")
+    @ResponseBody
+    public String axiosVoResponse3(@RequestParam String name,@RequestParam String age){
+        String msg="이름은: "+name+" "+"나이는: "+age;
+        return msg;
+    }
+
+    @PostMapping("/axios/vo/response4")
+    @ResponseBody
+    public String axiosVoResponse4(UserVO userVO){
+        String msg="이름은: "+userVO.getName()+" "+"나이는: "+userVO.getAge();
+        return msg;
+    }
+
+    @PostMapping("/axios/vo/response5")
+    @ResponseBody
+    public String axiosVoResponse5(@RequestBody UserVO userVO){
+        //@RequestBody는 setter 함수가 아닌 필드에 직접적으로 값을 주입하면서 매핑
+        //Model~~~는 setter함수가 아닌 각각의 필드에 값을 주입 하면서 매핑
+        String msg="이름은: "+userVO.getName()+" "+"나이는: "+userVO.getAge();
+        return msg;
+    }
 
 
 }
