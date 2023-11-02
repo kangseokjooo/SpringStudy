@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>UserList</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>이름</th>
+        <th>주소</th>
+        <th>작업</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user:${list}">
+        <td th:text="${user.getId()}"></td>
+        <td th:text="${user.getName()}"></td>
+        <td th:text="${user.getAddress()}"></td>
+        <td>
+            <form action="/update" method="get">
+                <input type="hidden" name="id" th:value="${user.id}">
+                <input type="text" id="name1" name="name" th:value="${user.name}" required>
+                <input type="text" id="address1" name="address" th:value="${user.address}" required>
+                <button type="submit">수정</button>
+            </form>
+            <a th:href="@{'/delete/' + ${user.getId()}}">삭제</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h2>Add User</h2>
+<form action="/insert" method="get">
+    <label for="name">이름:</label>
+    <input type="text" id="name" name="name" required>
+    <label for="address">주소:</label>
+    <input type="text" id="address" name="address" required>
+    <button type="submit">추가</button>
+</form>
+</body>
+</html>

@@ -1,6 +1,6 @@
 package com.example.mybatis.Mybatistest.domain;
 
-public class User {
+public class Users {
     private int id;
     private String name;
     private String address;
