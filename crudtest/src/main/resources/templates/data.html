@@ -7,7 +7,7 @@
 </head>
 <body>
 <form id="form_info">
-  <input type="text" name="id" th:value="${person.getUser_id()}" readonly disabled /> <br />
+  <input type="text" name="id" th:value="${person.getUserid()}" readonly disabled /> <br />
   <input type="password" name="pw" /> <br />
   <input type="text" name="name" th:value="${person.getName()}" /> <br />
   <button type="button" onclick="infoEdit()">수정</button>
@@ -17,7 +17,7 @@
   function infoEdit() {
       var form = document.getElementById('form_info');
       var data = {
-          user_id: form.id.value,
+          userid: form.id.value,
           name: form.name.value,
           password: form.pw.value
       };
