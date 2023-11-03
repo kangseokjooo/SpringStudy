@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <<form id="loginForm" >
+      <input type="text" name="id" id="id"/></br>
+      <input type="password" name="pw"/></br>
+      <button type="button" onclick="login()">로그인</button>
+    </form>
+  <script>
+      function login(){
+        const form=document.getElementById("loginForm");
+        const data={
+           user_id:form.id.value,
+           password:form.pw.value
+        }
+        axios({
+          method:'post',
+          url:'/login',
+          data
+        }).then(res=>{
+          console.log(res)
+          if(res.data){
+            alert("로그인 성공!")
+          }else{
+            alert("로그인 실패!")
+          }
+        })
+      }
+  </script>
+</body>
+</html>
