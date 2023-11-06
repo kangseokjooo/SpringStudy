@@ -13,28 +13,27 @@ public class BoardController {
     @Autowired
     private BoardService boardService;
 
-    //게시글 작성
     @PostMapping("/register")
     @ResponseBody
-    public boolean postRegister(@RequestBody BoardDTO boardDTO){
-       return boardService.createPost(boardDTO);
+    public boolean postRegister(@RequestBody BoardDTO boardDTO) {
+        return boardService.createPost(boardDTO);
     }
 
     @GetMapping("/all")
     @ResponseBody
-    public List<BoardDTO> getAllBoard(@RequestBody BoardDTO boardDTO){
+    public List<BoardDTO> getAllBoard(@RequestBody BoardDTO boardDTO) {
         return boardService.findAllBoard();
     }
+
     @PatchMapping("/update")
     @ResponseBody
-        public boolean updateBoard(@RequestBody BoardDTO boardDTO ){
-
+    public boolean updateBoard(@RequestBody BoardDTO boardDTO) {
         return boardService.updateBoard(boardDTO);
     }
+
     @DeleteMapping("/delete")
     @ResponseBody
-    public boolean deleteBoard(@RequestBody BoardDTO boardDTO){
+    public boolean deleteBoard(@RequestBody BoardDTO boardDTO) {
         return boardService.deleteBoard(boardDTO);
     }
-
 }
