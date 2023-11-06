@@ -18,6 +18,7 @@ public interface PersonRepository extends JpaRepository<PersonEntity,Long> {
 
     PersonEntity findByUserid(String userid);
 
+
     void deleteByUserid(String userid);
 
     //복잡한 쿼리일때 JPQL

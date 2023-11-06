@@ -28,7 +28,7 @@
   }
   function infoDelete() {
       var form = document.getElementById('form_info');
-      axios.post(`/delete`, { user_id: form.id.value }).then((res) => {
+      axios.post(`/delete`, { userid: form.id.value }).then((res) => {
           alert('탈퇴가 완료되었습니다.');
           document.location.href = '/login';
       });

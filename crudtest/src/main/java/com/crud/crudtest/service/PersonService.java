@@ -7,6 +7,7 @@ import com.crud.crudtest.mapper.PersonMapper;
 import com.crud.crudtest.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
@@ -58,6 +59,7 @@ public class PersonService {
 
         personRepository.save(person);
     }
+    @Transactional
     public void deletePerson(PersonDTO personDTO){
         personRepository.deleteByUserid(personDTO.getUserid());
 //        personMapper.deletePerson(personDTO.getUserid());
