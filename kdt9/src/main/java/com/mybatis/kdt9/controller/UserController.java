@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
@@ -26,6 +27,23 @@ public class UserController {
     @GetMapping("/user")
     public  String insertUser(@RequestParam String name,@RequestParam String nickname){
         userService.insertUser(name,nickname);
+        return "user";
+    }
+    @GetMapping("/search")
+    @ResponseBody
+    public boolean selectUser(@RequestParam String name){
+       return userService.searchUser(name);
+    }
+    @GetMapping("/searchid")
+    @ResponseBody
+    public String searchid(@RequestParam int id){
+        userService.searchid(id);
+        return "user";
+    }
+    @GetMapping("/searchnan")
+    @ResponseBody
+    public String serarchNameAndNickname(@RequestParam String name,@RequestParam String nickname){
+        userService.serarchNameAndNickname(name,nickname);
         return "user";
     }
 }
