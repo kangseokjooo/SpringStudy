@@ -1,6 +1,4 @@
 package com.mybatis.kdt9.controller;
-
-import com.mybatis.kdt9.domain.User;
 import com.mybatis.kdt9.dto.UserDTO;
 import com.mybatis.kdt9.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
